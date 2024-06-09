@@ -17,7 +17,10 @@ Docker: Ferramenta de containerização para empacotamento e execução do siste
 CRUD completo para produtos:
 
 Criação: Cadastrar novos produtos com suas informações (nome, descrição, preço, quantidade, etc.).
+
 Leitura: Consultar a lista de produtos, buscar produtos por ID ou nome, e visualizar detalhes de um produto específico.
+
 Atualização: Editar informações de um produto existente.
+
 Exclusão: Remover um produto do sistema.
 
