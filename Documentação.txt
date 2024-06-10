@@ -1,0 +1,96 @@
+Documentação da Aplicação de Controle de Estoque
+
+Introdução
+
+Esta documentação descreve uma aplicação de controle de estoque desenvolvida em Python utilizando o framework Flask. A aplicação permite o cadastro, consulta, atualização e exclusão de produtos em um estoque, utilizando um banco de dados SQL.
+
+Funcionalidades Principais
+
+1.	Cadastro de Produtos: Permite adicionar novos produtos ao estoque, especificando nome, departamento, quantidade e preço.
+2.	Consulta de Produtos: Fornece a lista de todos os produtos armazenados no estoque.
+3.	Consulta Individual de Produto: Permite visualizar os detalhes de um produto específico com base no seu ID.
+4.	Atualização de Produto: Permite modificar as informações de um produto existente.
+5.	Exclusão de Produto: Remove um produto do estoque com base no seu ID.
+
+Requisitos
+
+•	Python 3.x
+•	Flask
+•	Flask SQLAlchemy
+•	Banco de dados SQL (por exemplo, MySQL, PostgreSQL)
+
+Configuração do Ambiente
+
+1.	Instale as dependências do Python especificadas no arquivo requirements.txt:
+Copiar código
+pip install -r requirements.txt
+
+2.	Configure a variável de ambiente DB_URL com a URL do seu banco de dados SQL.
+
+Estrutura do Banco de Dados
+
+A aplicação utiliza uma única tabela denominada produtos com os seguintes campos:
+•	id: Identificador único do produto (chave primária).
+•	nome: Nome do produto (string, até 150 caracteres).
+•	departamento: Departamento ao qual o produto pertence (string, até 150 caracteres).
+•	quantidade: Quantidade disponível em estoque (inteiro).
+•	preco: Preço unitário do produto (ponto flutuante).
+
+Rotas da API
+•	GET /inicio: Rota de teste para verificar se a aplicação está em execução.
+•	POST /estoque: Cria um novo produto no estoque.
+•	GET /estoque: Retorna todos os produtos armazenados no estoque.
+•	GET /estoque/int:id: Retorna os detalhes de um produto específico com base no seu ID.
+•	PUT /estoque/int:id: Atualiza os detalhes de um produto existente com base no seu ID.
+•	DELETE /estoque/int:id: Exclui um produto do estoque com base no seu ID.
+
+Uso da API
+•	Para cadastrar um novo produto, envie uma requisição POST para /estoque com os dados do produto no formato JSON.
+•	Para obter a lista de todos os produtos, faça uma requisição GET para /estoque.
+•	Para obter os detalhes de um produto específico, faça uma requisição GET para /estoque/<id>, onde <id> é o ID do produto desejado.
+•	Para atualizar os detalhes de um produto existente, envie uma requisição PUT para /estoque/<id> com os dados atualizados do produto no formato JSON.
+•	Para excluir um produto do estoque, envie uma requisição DELETE para /estoque/<id>, onde <id> é o ID do produto a ser excluído.
+
+Exemplos de Requisições
+
+1.	Cadastro de Produto:
+json
+Copiar código
+POST /estoque
+{
+    "nome": "Camiseta",
+    "departamento": "Vestuário",
+    "quantidade": 100,
+    "preco": 25.99
+}
+
+2.	Consulta de Todos os Produtos:
+bash
+Copiar código
+GET /estoque
+
+3.	Consulta de Produto por ID:
+bash
+Copiar código
+GET /estoque/1
+
+4.	Atualização de Produto por ID:
+json
+Copiar código
+PUT /estoque/1
+{
+    "nome": "Camiseta",
+    "departamento": "Vestuário",
+    "quantidade": 80,
+    "preco": 29.99
+}
+
+5.	Exclusão de Produto por ID:
+bash
+Copiar código
+DELETE /estoque/1
+
+Considerações Finais
+
+Esta documentação fornece uma visão geral da aplicação de controle de estoque, suas funcionalidades, requisitos e exemplos de uso da API. Certifique-se de configurar corretamente o ambiente e o banco de dados antes de executar a aplicação. Em caso de dúvidas ou problemas, consulte a seção de rotas da API para obter mais informações sobre como interagir com a aplicação.
+
